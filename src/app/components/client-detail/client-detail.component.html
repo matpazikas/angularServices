@@ -1,0 +1,11 @@
+<form [formGroup]="clienteForm" (ngSubmit)="update()">
+    <p>
+      Nome: <input type="text" formControlName="nome">
+    </p>
+    <p>
+      Telefone: <input type="text" formControlName="telefone">
+    </p>
+    <button type="submit">Enviar</button>
+</form>
+<a href="cliente" class="btn btn-info m-2 p-2">Voltar</a>
+  

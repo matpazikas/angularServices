@@ -1,20 +1,22 @@
 <form [formGroup]="clienteForm" (ngSubmit)="inserir()">
+  <input type="hidden" formControlName="id"> 
   <p>
-    Nome: <input type="text" formControlName="nome">
+    Nome: <input type="text" formControlName="nome" class="m-1 p-1">
   </p>
   <p>
-    Telefone: <input type="text" formControlName="telefone">
+    Telefone: <input type="text" formControlName="telefone" class="m-1 p-1">
   </p>
-  <button type="submit">Enviar</button>
+  <button type="submit" class="btn btn-success m-1 p-2">Enviar</button>
 </form>
 
 <h2>Listar </h2>
 
 <ul>
   @for (item of clientes; track $index) {
-  <li>
+  <li class="list-group-item list-group-item-action">
     {{item.id}} - {{item.nome}} - {{item.telefone}}
-    <input type="button" value="Remover" (click)="remover(item.id)">
+    <input type="button" value="Remover" (click)="remover(item.id)" class="btn btn-danger p-2 m-2">
+    <a href="cliente/{{item.id}}" class="btn btn-warning p-2 m-2">Editar</a>
   </li>
   }
 </ul>

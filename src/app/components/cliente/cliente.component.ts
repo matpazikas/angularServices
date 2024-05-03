@@ -42,17 +42,19 @@ export class ClienteComponent {
       }
 
       this.clienteForm.reset()
-      this.clienteService.adicionar(clienteNovo)
+      this.clientes.push(clienteNovo)
+      this.clienteService.adicionar(clienteNovo).subscribe();
       alert('Cadastrado com sucesso!')
 
     }
   }
 
   listar():void {
-    this.clientes = this.clienteService.listar();
+    this.clienteService.listar().subscribe((listClient) => (this.clientes = listClient));
   }
 
   remover(id:string):void{
+    this.clientes = this.clientes.filter((c) => c.id !== id)
     this.clienteService.remover(id);
     alert("Removido com sucesso!")
   }
